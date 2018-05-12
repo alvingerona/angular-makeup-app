@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { LoadingController } from 'ionic-angular';
+import { HttpClient } from "@angular/common/http";
 
 @Component({
   selector: 'page-home',
@@ -7,8 +9,31 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  loading: any;
+  beers: Array<any>;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient, public loadingCtrl: LoadingController) {
 
   }
 
+  loadBeers() {
+    
+    let url = 'http://api.brewerydb.com/v2/';
+    
+    // Show loader
+    this.presentLoading();
+
+    this.http.get(url).subscribe((res: any ) => {
+  
+      this.loading.dismiss();
+    });    
+  }
+
+  presentLoading() {
+    this.loading = this.loadingCtrl.create({
+      content: "Please wait...",
+    });
+
+    this.loading.present();
+  }  
 }
