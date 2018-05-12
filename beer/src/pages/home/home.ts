@@ -11,9 +11,10 @@ export class HomePage {
 
   loading: any;
   items: Array<any>;
+  brand: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient, public loadingCtrl: LoadingController) {
-
+    this.brand = 'maybelline';
   }
 
   ionViewDidLoad() {
@@ -21,8 +22,8 @@ export class HomePage {
   }
 
   loadBeers() {
-    
-    let url = 'http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline';
+    console.log(this.brand);
+    let url = 'http://makeup-api.herokuapp.com/api/v1/products.json?brand=' + this.brand;
     
     // Show loader
     this.presentLoading();
@@ -40,6 +41,10 @@ export class HomePage {
 
     this.loading.present();
   } 
+
+  onChange() {
+    this.loadBeers();
+  }
 
   openInfo(item) {
 

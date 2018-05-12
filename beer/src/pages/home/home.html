@@ -8,6 +8,16 @@
 
 <ion-content>
   <ion-list>
+    <ion-item>
+
+      <ion-select [(ngModel)]="brand" (ngModelChange)="onChange($event)">
+          <ion-option [selected]="brand == 'maybelline'" value="maybelline">Maybelline</ion-option>
+          <ion-option [selected]="brand == 'almay'" value="almay">Almay</ion-option>
+        </ion-select>      
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
       <button ion-item *ngFor="let item of items" (click)="openInfo(item)">
        {{item.name}} {{item.brand}} ${{item.price}}
        <img [src]="item.image_link" />
