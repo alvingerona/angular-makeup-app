@@ -24,7 +24,7 @@ export class MakeupPage {
   showAlert() {
     let alert = this.alertCtrl.create({
       title: 'Thanks for buying',
-      subTitle: 'AutoDebit',
+      subTitle: 'AutoDebit. Check Email.',
       buttons: ['OK']
     });
     alert.present();
