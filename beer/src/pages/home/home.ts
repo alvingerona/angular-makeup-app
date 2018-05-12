@@ -1,3 +1,4 @@
+import { MakeupPage } from './../makeup/makeup';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LoadingController } from 'ionic-angular';
@@ -47,6 +48,6 @@ export class HomePage {
   }
 
   openInfo(item) {
-
+    this.navCtrl.push(MakeupPage, item)
   }
 }

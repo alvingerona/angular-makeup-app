@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      LAZADA: Make-up FOR SALE 
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -19,8 +19,11 @@
 
   <ion-list>
       <button ion-item *ngFor="let item of items" (click)="openInfo(item)">
-       {{item.name}} {{item.brand}} ${{item.price}}
-       <img [src]="item.image_link" />
+        <img [src]="item.image_link" style="height:50px; width:50px;"/>
+        <h2>{{item.name}}</h2> 
+        <h3>{{item.brand}}</h3> 
+        <p>${{item.price}}</p>
+      
       </button>
   </ion-list>
 </ion-content>
