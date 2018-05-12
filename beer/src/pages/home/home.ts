@@ -10,23 +10,27 @@ import { HttpClient } from "@angular/common/http";
 export class HomePage {
 
   loading: any;
-  beers: Array<any>;
+  items: Array<any>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: HttpClient, public loadingCtrl: LoadingController) {
 
   }
 
+  ionViewDidLoad() {
+    this.loadBeers();
+  }
+
   loadBeers() {
     
-    let url = 'http://api.brewerydb.com/v2/';
+    let url = 'http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline';
     
     // Show loader
     this.presentLoading();
 
     this.http.get(url).subscribe((res: any ) => {
-  
+      this.items = res;
       this.loading.dismiss();
-    });    
+    });
   }
 
   presentLoading() {
@@ -35,5 +39,9 @@ export class HomePage {
     });
 
     this.loading.present();
-  }  
+  } 
+
+  openInfo(item) {
+
+  }
 }
