@@ -22,10 +22,6 @@ export class MakeupPage {
     console.log(this.item);
   }
 
-  ionViewDidLoad() {
-
-  }
-
   isFavorite(item) : boolean{
 
     return false;
