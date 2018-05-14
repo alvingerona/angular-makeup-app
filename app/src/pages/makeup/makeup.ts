@@ -19,20 +19,23 @@ export class MakeupPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
     this.item = this.navParams.data;
 
-  }
-
-  showAlert() {
-    let alert = this.alertCtrl.create({
-      title: 'Thanks for buying',
-      subTitle: 'AutoDebit',
-      buttons: ['OK']
-    });
-    alert.present();
-    this.navCtrl.pop();
+    console.log(this.item);
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad MakeupPage');
+
   }
 
+  isFavorite(item) : boolean{
+
+    return false;
+  }
+
+  addToFavorites(item) {
+
+  }
+
+  removeToFavorites(item) {
+
+  }
 }

@@ -1,0 +1,36 @@
+<!--
+  Generated template for the MakeupPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{item.name}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card>
+    <ion-card-header>
+        <div class="card-title">{{item.name}}</div>
+    </ion-card-header>    
+    <ion-card-content>
+      <img [src]="item.image_link" />
+      <span class="brand">{{item.brand}}</span> <span class="price">PHP {{item.price}}</span>
+      <p>{{item.description}}</p>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar>
+      <button ion-button block large  class="favBtn" (click)="showAlert()">
+          Add to Favorites 
+          <ion-icon icon-right item-end *ngIf="!isFavorite(item)" (click)="addToFavorites(item)" class="favorite-heart" ios="ios-heart-outline" md="md-heart-outline"></ion-icon>
+          <ion-icon icon-right item-end *ngIf="isFavorite(item)" (click)="removeToFavorites(item)" class="favorite-heart" ios="ios-heart" md="md-heart"></ion-icon>      
+      </button>
+    </ion-toolbar>
+</ion-footer>

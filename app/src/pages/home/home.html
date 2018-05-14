@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Make-up FOR SALE 
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-item class="filter-row">
+    <ion-label>Brand</ion-label>
+    <ion-select  placeholder="Select Brand..." class="filter" [(ngModel)]="brand" (ngModelChange)="onChange($event)">
+      <ion-option  *ngFor="let optBrand of brands" [selected]="brandName === optBrand.name" [value]="optBrand">{{optBrand.label}}</ion-option>
+    </ion-select> 
+  </ion-item>
+
+  <ion-list>
+      <ion-item *ngFor="let item of items">
+        <ion-thumbnail item-start (click)="openInfo(item)">
+          <img [src]="item.image_link">
+        </ion-thumbnail>
+        <span (click)="openInfo(item)">
+          <h2 class="name">{{item.name}}</h2> 
+          <p class="brand">{{item.brand}}</p> 
+          <p class="price">PHP {{item.price}}</p>
+        </span>
+        <ion-icon item-end *ngIf="!isFavorite(item)" (click)="addToFavorites(item)" class="favorite-heart" ios="ios-heart-outline" md="md-heart-outline"></ion-icon>
+        <ion-icon item-end *ngIf="isFavorite(item)" (click)="removeToFavorites(item)" class="favorite-heart" ios="ios-heart" md="md-heart"></ion-icon>
+      </ion-item>
+  </ion-list>
+</ion-content>

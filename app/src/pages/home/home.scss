@@ -1,0 +1,26 @@
+page-home {
+
+    .favorite-heart {
+        color : $active-color;
+    }
+
+    .name {
+        text-transform:capitalize;
+    }
+
+    .brand {
+        text-transform:capitalize;
+    }
+
+    .filter {
+        text-transform:capitalize;
+    }
+
+    .price {
+        color:$active-color;
+    }
+
+    ion-navbar{
+        background-color: $navbar-color; 
+    }
+}
